@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b61d5atdla4xe"]
+
+[ext_resource type="Texture2D" uid="uid://durv505i8geua" path="res://sprites/Towers Weapons/Tower 06/Spritesheets/Tower 06 - Level 01 - Projectile.png" id="1_mkf8s"]
+[ext_resource type="Script" uid="uid://r8or8emk2u2u" path="res://scripts/bullet.gd" id="1_y25gk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y25gk"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(0, 0, 6, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5glv"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(6, 0, 6, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoqba"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(12, 0, 6, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1aey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y25gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5glv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoqba")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkf8s"]
+size = Vector2(6, 25)
+
+[node name="Bullet" type="Area2D" unique_id=1207598785]
+collision_layer = 2
+script = ExtResource("1_y25gk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1818302295]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_h1aey")
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2014351876]
+shape = SubResource("RectangleShape2D_mkf8s")
