@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c0umn3wqs123v"]
+
+[ext_resource type="Script" uid="uid://bmxallqmbmxyc" path="res://scripts/tower.gd" id="1_2x682"]
+
+[node name="Tower" type="Node2D" unique_id=634877949]
+script = ExtResource("1_2x682")
+
+[node name="Base" type="Sprite2D" parent="." unique_id=1023944250]
+texture_filter = 1
+
+[node name="Turret" type="AnimatedSprite2D" parent="." unique_id=577297296]
+texture_filter = 1
+animation = &""
+frame_progress = 0.46575642
+offset = Vector2(0, -10)
+flip_v = true
+
+[node name="EnemyDetectionArea" type="Area2D" parent="." unique_id=1862779430]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea" unique_id=126731965]
+
+[node name="ReloadTimer" type="Timer" parent="." unique_id=423395882]
+autostart = true
+
+[connection signal="area_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_area_entered"]
+[connection signal="area_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_area_exited"]
